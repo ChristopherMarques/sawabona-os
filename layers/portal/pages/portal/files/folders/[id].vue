@@ -19,7 +19,7 @@ const {
 					href: '/portal',
 				},
 				{
-					title: 'Files',
+					title: 'Arquivos',
 					href: '/portal/files',
 				},
 			]"

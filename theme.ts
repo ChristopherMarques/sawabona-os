@@ -14,18 +14,18 @@ export interface Theme {
 }
 
 export const theme = {
-	primary: 'violet',
-	gray: 'slate',
+	primary: 'green',
+	gray: 'neutral',
 	borderRadius: 'lg',
 	googleFonts: {
-		Inter: true,
+		Joesfin_Sans: true,
 		'Fira Code': true,
-		Poppins: [400, 500, 600, 700, 800, 900],
+		Yeseva_One: [400, 500, 600, 700, 800, 900],
 		'Nothing You Could Do': true,
 	},
 	fonts: {
-		display: 'Poppins',
-		sans: 'Inter',
+		display: 'Yeseva One',
+		sans: 'Josefin Sans',
 		code: 'Fira Code',
 		signature: 'Nothing You Could Do',
 	},

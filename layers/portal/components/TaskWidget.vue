@@ -52,11 +52,11 @@ const { data, pending, error, refresh } = await useAsyncData(
 const columns = [
 	{
 		key: 'name',
-		label: 'Name',
+		label: 'Nome',
 	},
 	{
 		key: 'due_date',
-		label: 'Due Date',
+		label: 'Data de Conclusão',
 	},
 ];
 
@@ -83,16 +83,16 @@ async function openTask(id: string) {
 <template>
 	<div class="px-4 py-10 bg-white border border-gray-300 rounded-panel dark:border-gray-700 dark:bg-gray-900">
 		<div>
-			<dt class="font-medium leading-6 text-gray-500 font-display dark:text-gray-300">Open Tasks</dt>
+			<dt class="font-medium leading-6 text-gray-500 font-display dark:text-gray-300">Tarefas em Aberto</dt>
 			<dd class="flex-none w-full text-3xl font-medium leading-10 tracking-tight text-gray-900 dark:text-white">
-				{{ count }} tasks
+				{{ count }} Tarefas
 			</dd>
 		</div>
 
 		<UTable :columns="columns" :rows="tasks">
 			<template #name-data="{ row }">
 				<UButton variant="link" class="max-w-[250px]" :padded="false" @click="openTask(row.id)">
-					<span class="truncate">{{ row.name ?? 'Task with no name' }}</span>
+					<span class="truncate">{{ row.name ?? 'Tarefa sem Nome' }}</span>
 				</UButton>
 			</template>
 			<template #due_date-data="{ row }">

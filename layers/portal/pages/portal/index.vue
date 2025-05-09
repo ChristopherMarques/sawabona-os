@@ -3,20 +3,19 @@ function useGreetings() {
 	type Message = string;
 
 	const messages: Message[] = [
-		'Remember, <em>every challenge</em> is easier together.',
-		"Your vision is our mission. Together, we'll create <em>something outstanding</em>.",
-		"The best projects are <em>fueled by partnership</em>. Here's to another successful day working together!",
-		'Every detail, every idea, every feedback. <em>It all matters</em>. Thank you for entrusting us with your vision.',
-		"Project management isn't just about the destination, it's about <em>enjoying and learning from the journey</em>. We're thrilled to be on this adventure with you.",
-		'With every challenge, we <em>grow stronger</em>. Thanks for pushing us to be our best!',
-		"From concept to completion, your aspirations are in <em>dedicated hands</em>. Let's keep moving forward, together.",
-		"Like a symphony, <em>every note counts</em>. We're harmonizing perfectly with your vision, creating a masterpiece in progress.",
-		"As we tackle today's tasks, know that our <em>commitment</em> to your success is unwavering.",
-		'Every step with you is a step towards <em>brilliance</em>. Thanks for making this journey shine brighter.',
+		"Lembre-se: <em>todo desafio</em> é mais fácil quando enfrentado em equipe.",
+		"Sua visão é nossa missão. Juntos vamos criar <em>algo extraordinário</em>.",
+		"Os melhores projetos são <em>movidos por parcerias</em>. Que seja mais um dia de sucesso juntos!",
+		"Cada detalhe, cada ideia, cada feedback. <em>Tudo importa</em>. Obrigado por confiar sua visão a nós.",
+		"A gestão de projetos vai além do destino: é sobre <em>curtir e aprender com a jornada</em>. É um prazer estar nessa com você.",
+		"A cada desafio, <em>nos tornamos mais fortes</em>. Obrigado por nos impulsionar a dar o nosso melhor!",
+		"Do conceito à entrega, seus sonhos estão em <em>boas mãos</em>. Vamos continuar avançando juntos.",
+		"Como numa sinfonia, <em>cada nota conta</em>. Estamos em sintonia com sua visão, criando uma verdadeira obra-prima.",
+		"Enquanto enfrentamos as tarefas de hoje, saiba que nossa <em>dedicação</em> ao seu sucesso é total.",
+		"Cada passo com você é um passo rumo à <em>excelência</em>. Obrigado por tornar essa jornada mais brilhante.",
 	];
 
 	function getTodaysMessage(): Message {
-		// Use the current day as the seed for the message index so that the message stays consistent throughout the day.
 		const now = new Date();
 		const start = new Date(now.getFullYear(), 0, 0);
 		const difference = now.getTime() - start.getTime();
@@ -32,13 +31,21 @@ function useGreetings() {
 	};
 }
 
+function greetUser() {
+	const hour = new Date().getHours();
+	if (hour < 12) return 'Bom dia';
+	if (hour < 18) return 'Boa tarde';
+	return 'Boa noite';
+}
+
 const { getTodaysMessage } = useGreetings();
 const { user } = useDirectusAuth();
 </script>
+
 <template>
 	<PageContainer>
 		<img class="w-48 ml-auto mr-0" src="~/assets/illustrations/tokyo-luminous-table-lamp-on-boxes.svg" />
-		<TypographyTitle class="normal-case">{{ greetUser() }} {{ user?.first_name ?? 'friend' }},</TypographyTitle>
+		<TypographyTitle class="normal-case">{{ greetUser() }} {{ user?.first_name ?? 'amigo(a)' }},</TypographyTitle>
 		<TypographyHeadline :content="getTodaysMessage()" size="xl" />
 		<VDivider class="my-8" />
 		<div class="grid w-full grid-cols-1 gap-6 md:grid-cols-2">

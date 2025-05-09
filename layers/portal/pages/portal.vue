@@ -29,26 +29,26 @@ function useCommandPalette() {
 
 const sidebarNavigation = {
 	top: [
-		{ name: 'Search', click: () => (showCommandPalette.value = true), icon: 'material-symbols:search-rounded' },
+		{ name: 'Pesquisar', click: () => (showCommandPalette.value = true), icon: 'material-symbols:search-rounded' },
 		{ name: 'Dashboard', href: '/portal', icon: 'material-symbols:home-outline-rounded' },
-		{ name: 'Projects', href: '/portal/projects', icon: 'material-symbols:tab-group-outline-rounded' },
-		{ name: 'Files', href: '/portal/files', icon: 'material-symbols:folder-outline-rounded' },
-		{ name: 'Billing', href: '/portal/billing', icon: 'material-symbols:attach-money-rounded' },
-		{ name: 'Account', href: '/portal/account', icon: 'material-symbols:account-circle-outline' },
+		{ name: 'Projetos', href: '/portal/projects', icon: 'material-symbols:tab-group-outline-rounded' },
+		{ name: 'Arquivos', href: '/portal/files', icon: 'material-symbols:folder-outline-rounded' },
+		{ name: 'Faturamento', href: '/portal/billing', icon: 'material-symbols:attach-money-rounded' },
+		{ name: 'Conta', href: '/portal/account', icon: 'material-symbols:account-circle-outline' },
 	],
-	bottom: [{ name: 'Help', href: '/portal/help', icon: 'material-symbols:help-outline-rounded' }],
+	bottom: [{ name: 'Ajuda', href: '/portal/help', icon: 'material-symbols:help-outline-rounded' }],
 };
 
 const userNavigation = [
 	[
 		{
-			label: 'Your Profile',
+			label: 'Seu Perfil',
 			icon: 'i-heroicons-user-circle',
 			click: () => {
 				navigateTo('/portal/account#profile');
 			},
 		},
-		{ label: 'Sign out', icon: 'i-heroicons-arrow-left-on-rectangle', click: () => logout() },
+		{ label: 'Sair', icon: 'i-heroicons-arrow-left-on-rectangle', click: () => logout() },
 	],
 ];
 
@@ -109,7 +109,7 @@ const mobileMenuOpen = ref(false);
 							<!-- Profile dropdown -->
 							<UDropdown class="relative" :items="userNavigation">
 								<button>
-									<span class="sr-only">Open user menu</span>
+									<span class="sr-only">Abrir menu do usuario</span>
 									<UAvatar class="w-12 h-12 mx-auto" :src="user.avatar" :alt="userName(user)" />
 								</button>
 							</UDropdown>
